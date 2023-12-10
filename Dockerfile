@@ -1,5 +1,5 @@
 # Stage 1: Build the application
-FROM python:3.9 AS builder
+FROM python:3.9@sha256:1ab70c106669b2bc6d94518d59814c6de98e0477618435267d848dc5fb5f9dbb AS builder
 
 WORKDIR /app
 
@@ -11,7 +11,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Stage 2: Create a lightweight runtime image
-FROM python:3.9-slim
+FROM python:3.9-slim@sha256:5acaaa31e25d08c00bd186fbd5f3d317eeb267e038d7e0d0304784e355fb8b84
 
 WORKDIR /app
 
